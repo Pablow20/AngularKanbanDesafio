@@ -1,0 +1,62 @@
+<div class="quadro">
+  <div class="colunas">
+
+    <!-- Coluna A FAZER -->
+    <mat-card class="coluna">
+      <h2 class="titulo-coluna">A FAZER</h2>
+      <div class="lista-tarefas">
+        <!-- Cartão padrão do Angular Material para cada tarefa -->
+        <mat-card *ngFor="let tarefa of tarefasAFazer" class="task-card">
+          <mat-card-header>
+            <mat-card-title>{{ tarefa.name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ tarefa.description }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card>
+
+    <!-- Coluna EM ANDAMENTO -->
+    <mat-card class="coluna">
+      <h2 class="titulo-coluna">EM ANDAMENTO</h2>
+      <div class="lista-tarefas">
+        <mat-card *ngFor="let tarefa of tarefasEmProgresso" class="task-card">
+          <mat-card-header>
+            <mat-card-title>{{ tarefa.name }}</mat-card-title>
+            <p>Responsável: {{ tarefa.owner }}</p>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ tarefa.description }}</p>
+            <div class="progresso">
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="area-botao">
+        <button mat-raised-button color="accent" routerLink="/criar-task">
+          <mat-icon>add</mat-icon>
+          Novo cartão
+        </button>
+      </div>
+    </mat-card>
+
+    <!-- Coluna CONCLUÍDO -->
+    <mat-card class="coluna">
+      <h2 class="titulo-coluna">CONCLUÍDO</h2>
+      <div class="lista-tarefas">
+        <mat-card *ngFor="let tarefa of tarefasConcluidas" class="task-card concluido">
+          <mat-card-header>
+            <mat-card-title>{{ tarefa.name }}</mat-card-title>
+
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ tarefa.description }}</p>
+            <mat-icon class="check-icon">check_circle</mat-icon>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card>
+
+  </div>
+</div>

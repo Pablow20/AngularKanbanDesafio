@@ -1,0 +1,61 @@
+.quadro {
+  background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.colunas {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+.coluna {
+  flex: 1;
+  min-width: 320px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.coluna:hover {
+  transform: translateY(-5px);
+}
+
+.titulo-coluna {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #00ff88;
+  padding: 1rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 12px 12px 0 0;
+  margin: -1rem -1rem 1rem;
+  border-bottom: 2px solid #00ff88;
+}
+
+.lista-tarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+
+.task-card:hover::before {
+  left: 100%;
+}
+
+
+
+.mat-progress-bar-fill::after {
+  background: linear-gradient(90deg, #00ff88, #00cc66) !important;
+}
+
+
+
+
