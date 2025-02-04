@@ -1,61 +1,98 @@
 .quadro {
-  background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
-  padding: 2rem;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  height: calc(100vh - 100px);
 }
 
 .colunas {
   display: flex;
-  gap: 2rem;
-  padding: 1rem;
+  gap: 20px;
   overflow-x: auto;
+  height: 100%;
+  padding-bottom: 20px;
 }
 
 .coluna {
+  background: #2d2d2d;
+  border-radius: 8px;
+  padding: 15px;
+  min-width: 300px;
   flex: 1;
-  min-width: 320px;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-}
-
-.coluna:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .titulo-coluna {
-  font-size: 1.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #00ff88;
-  padding: 1rem;
-  background: rgba(0,0,0,0.3);
-  border-radius: 12px 12px 0 0;
-  margin: -1rem -1rem 1rem;
-  border-bottom: 2px solid #00ff88;
+  margin: 0 0 15px 0;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 1.2em;
+  color: #ffffff;
 }
+
+.a-fazer, .em-andamento, .concluido {
+  color: #ffffff;
+}
+
+.a-fazer { background: #555555; }
+.em-andamento { background: #777777; }
+.concluido { background: #999999; }
 
 .lista-tarefas {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
-  max-height: 80vh;
+  gap: 15px;
+  height: calc(100% - 50px);
   overflow-y: auto;
 }
 
-
-
-.task-card:hover::before {
-  left: 100%;
+.task-card {
+  margin: 5px 0;
+  transition: transform 0.2s;
+  position: relative;
+  background: #3d3d3d;
+  padding: 10px;
+  border-radius: 4px;
+  color: #ffffff;
 }
 
-
-
-.mat-progress-bar-fill::after {
-  background: linear-gradient(90deg, #00ff88, #00cc66) !important;
+.task-card:hover {
+  transform: translateY(-2px);
 }
 
+.concluido {
+  border-left: 4px solid #4CAF50;
+}
 
+.card-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
+.responsavel {
+  font-size: 0.9em;
+  color: #bbbbbb;
+}
+
+.btn-editar {
+  color: #bbbbbb;
+}
+
+.btn-editar:hover {
+  color: #2196F3;
+}
+
+.descricao {
+  color: #cccccc;
+  font-size: 0.95em;
+  margin: 10px 0;
+}
+
+.check-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #4CAF50;
+  font-size: 24px;
+}
 

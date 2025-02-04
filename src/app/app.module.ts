@@ -8,7 +8,7 @@ import { ParaFazerListaComponent } from './para-fazer-lista/para-fazer-lista.com
 import { QuadroComponent } from './quadro/quadro.component';
 import { TerminadoListaComponent } from './terminado-lista/terminado-lista.component';
 import { WipListaComponent } from './wip-lista/wip-lista.component';
-import {MatAnchor, MatButton} from '@angular/material/button';
+import {MatAnchor, MatButton, MatIconButton} from '@angular/material/button';
 import {MatFormField, MatFormFieldModule} from '@angular/material/form-field';
 import {MatOption} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -22,6 +22,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatIcon} from '@angular/material/icon';
 import {MatProgressBar} from '@angular/material/progress-bar';
+import { TelaDeEditarComponent } from './tela-de-editar/tela-de-editar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatProgressBar} from '@angular/material/progress-bar';
     NovaTaskComponent,
     TelaLoginComponent,
     CadastroComponent,
+    TelaDeEditarComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import {MatProgressBar} from '@angular/material/progress-bar';
     HttpClientModule,
     MatAnchor,
     MatIcon,
-    MatProgressBar
+    MatProgressBar,
+    MatIconButton
   ],
   providers: [
     provideAnimationsAsync()

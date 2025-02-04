@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Task } from '../core/models/task';
 import {ServiceService} from '../service.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -9,28 +10,38 @@ import {ServiceService} from '../service.service';
   styleUrls: ['./quadro.component.css'],
   standalone: false
 })
-export class QuadroComponent {
+export class QuadroComponent implements OnInit {
   tarefasAFazer: Task[] = [];
   tarefasEmProgresso: Task[] = [];
-  tarefasConcluidas: Task[] = []
+  tarefasConcluidas: Task[] = [];
 
-  constructor(private service: ServiceService) {}
+  constructor(
+    private service: ServiceService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.carregarTasks();
   }
 
+  adicionarTask(): void {
+    this.router.navigate(['/nova-tarefa']);
+  }
+
+
   carregarTasks() {
-    // Faz uma requisição ao serviço para pegar as tarefas
     this.service.getTasks().subscribe({
       next: (tasks) => {
-        // Filtra as tarefas para separá-las em três categorias de status
-        this.tarefasAFazer = tasks.filter(task => task.status === 1); // Tarefas com status 1 (a fazer)
-        this.tarefasEmProgresso = tasks.filter(task => task.status === 2); // Tarefas com status 2 (em progresso)
-        this.tarefasConcluidas = tasks.filter(task => task.status === 3); // Tarefas com status 3 (concluídas)
+        this.tarefasAFazer = tasks.filter(task => task.status === 1);
+        this.tarefasEmProgresso = tasks.filter(task => task.status === 2);
+        this.tarefasConcluidas = tasks.filter(task => task.status === 3);
       },
-      error: (err) => console.error('Erro ao carregar tasks:', err) // Exibe erro caso a requisição falhe
+      error: (err) => console.error('Erro ao carregar tasks:', err)
     });
+  }
+
+  editarTask(id: number): void {
+    this.router.navigate(['/editar-task', id]);
   }
 
 }

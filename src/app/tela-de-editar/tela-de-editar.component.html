@@ -1,0 +1,60 @@
+<div class="editar-task">
+  <h2>Editar Tarefa</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="Nome" formControlName="name" required>
+      <mat-error *ngIf="taskForm.get('name')?.hasError('required')">
+        O nome é obrigatório.
+      </mat-error>
+      <mat-error *ngIf="taskForm.get('name')?.hasError('minlength')">
+        O nome deve ter pelo menos 1 caractere.
+      </mat-error>
+      <mat-error *ngIf="taskForm.get('name')?.hasError('maxlength')">
+        O nome deve ter no máximo 100 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Descrição" formControlName="description" required></textarea>
+      <mat-error *ngIf="taskForm.get('description')?.hasError('required')">
+        A descrição é obrigatória.
+      </mat-error>
+      <mat-error *ngIf="taskForm.get('description')?.hasError('minlength')">
+        A descrição deve ter pelo menos 1 caractere.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="number" placeholder="Horas Planejadas" formControlName="planned_hours" required>
+      <mat-error *ngIf="taskForm.get('planned_hours')?.hasError('required')">
+        As horas planejadas são obrigatórias.
+      </mat-error>
+      <mat-error *ngIf="taskForm.get('planned_hours')?.hasError('min')">
+        As horas planejadas devem ser maiores ou iguais a 0.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Status" formControlName="status" required>
+        <mat-option *ngFor="let status of opcoesStatus" [value]="status.value">
+          {{ status.viewValue }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="taskForm.get('status')?.hasError('required')">
+        O status é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Responsável" formControlName="owner" required>
+      <mat-error *ngIf="taskForm.get('owner')?.hasError('required')">
+        O responsável é obrigatório.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="botoes">
+      <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">Salvar</button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</div>
